@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="img/favicon/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin> 
+    <link href="css/style.min.css" type="text/css" rel="stylesheet">
+    <title>Главная</title>
+    <meta name="theme-color" content="#333">
+</head>
+
+<body>
+    <object style="display: none" class="sprite" type="image/svg+xml" data="img/icons/sprite.svg" title="Ваш браузер не поддерживает SVG"></object>
+    <div class="preloader">
+    <div class="preloader__bar">
+      <div class="preloader__progress"></div>
+    </div>  
+    <div class="preloader__inner">
+        <span class="preloader__percent">0</span>
+        <span class="preloader__text-stroke">NbHunter</span>
+        <span class="preloader__text-fill">NbHunter</span>
+    </div>
+  </div>
+    <div class="wrap">
+        <!--header-->
+        <header class="header fixed-block">
+            <div class="container">
+                <div class="header__logo">
+                    <a href="/"><img
+                            src="data:image/png;base64,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"
+                            alt="Логотип"></a>
+                    <span>Онлайн-консультант по ноутбукам</span>
+                </div>
+                <div class="header__menu">
+                    <div class="icon-menu">
+                        <span></span>
+                    </div>
+                    <nav class="menu">
+                        <ul>
+                            <li><a class="active" href="/" style="--item-index: 0;">Главная</a></li>
+                            <li><a href="#recommended" style="--item-index: 1;">Наша подборка</a></li>
+                            <li><a href="#tags" style="--item-index: 2;">По тегам</a></li>
+                            <li><a href="" style="--item-index: 3;">Все ноутбуки</a></li>
+                            <li><a href="#about" style="--item-index: 4;">О проекте</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!--main-->
+        <main class="main">
+            <section class="main-intro">
+                <picture>
+                    <source srcset="img/intro.webp" media="(min-width: 800.99px)" type="image/webp">
+                    <source srcset="img/intro.png" media="(min-width: 800.99px)">
+                    <source srcset="img/intro-mob.webp" type="image/webp">
+                    <source srcset="img/intro-mob.png">
+                    <img src="img/intro.png" alt="Лучшее предложение">
+                </picture>
+                <div class="container">
+                    <div class="main-intro__btns">
+                        <a href="#">Все характеристики</a>
+                        <a href="#">MVideo.ru</a>
+                    </div>
+                </div>
+            </section>
+            <section class="rec-catalog" id="recommended">
+                <div class="container">
+                    <h2>Лучшие предложения</h2>
+                    <div class="rec-catalog__inner">
+                        <div class="swiper rec-catalog__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                                </div>
+                            </div>
+                            <div class="swiper-nav">
+                                <div class="swiper-btn swiper-btn--prev">
+                                    <svg>
+                                        <use xlink:href="img/icons/sprite.svg#btn-prev"></use>
+                                    </svg>
+                                </div>
+                                <div class="swiper-btn swiper-btn--next">
+                                    <svg>
+                                        <use xlink:href="img/icons/sprite.svg#btn-next"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-align"><a class="btn main-btn rec-catalog__btn" href="#">Полный каталог</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tags">
+                <div class="container">
+                    <div class="tags__info">
+                        <p>Характеристики ноутбука ни о чем вам не говорят? Воспользуйтесь нашим поиском по тегам:
+                            просто укажите для чего вам нужен ноутбук, какие функции у него должны быть, какие программы
+                            должен поддерживать. Можно выбрать несколько тегов. Выбирайте в первую очередь важные для
+                            вас теги, чтобы второстепенные теги не исключили интересные для вас варианты</p>
+                    </div>
+                    <form action="" class="form tags-form">
+                        <div class="tags-form__list">
+                            <label class="disable">
+                                <input type="checkbox" name="tags">
+                                <span>Работа с цветом</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>AutoCad</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>3ds</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Веб-Дизайн</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Графический дизайн</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Интернет серфинг</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Графический дизайн</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Работа с графикой</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Многозадачность</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Много открытых вкладок</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Блендер</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>17'3 не игровой</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Цифровая клавиатура</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Офисный софт</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>AutoCAD без 3d</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Менее кг</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>1-1,5 кг</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Ударопрочный</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Влагозащита</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Photoshop</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Corel Draw</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Для дома</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>С Windows</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Без Windows</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Нетребовательные игры</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Игровое железо в классическом корпусе</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Для учебы</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Подсветка клавиатуры</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Яркий корпус</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Игроман</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Металлический корпус</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>1С</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Монтаж видео</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>IPS</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>OLED</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Сенсорный экран</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="tags">
+                                <span>Поддержка SIM-карты</span>
+                            </label>
+                        </div>
+                        <button type="reset" class="tags-form__reset">Сбросить</button>
+                        <div class="select-custom">
+                            <div class="select-custom__selected"><span>По рейтингу</span></div>
+                            <div class="select-custom__options">
+                                <label class="select-custom__option">
+                                    <input type="radio" name="sort" value="1">
+                                    <span>
+                                        По цене<svg style="transform: rotate(180deg);"><use xlink:href="img/icons/sprite.svg#down"></use></svg>
+                                    </span>
+                                </label>
+                                <label class="select-custom__option">
+                                    <input type="radio" name="sort" value="2">
+                                    <span>
+                                        По цене<svg><use xlink:href="img/icons/sprite.svg#down"></use></svg>
+                                    </span>
+                                </label>
+                                <label class="select-custom__option">
+                                    <input type="radio" name="sort" value="3">
+                                    <span>
+                                        По рейтингу<svg style="transform: rotate(180deg);"><use xlink:href="img/icons/sprite.svg#down"></use></svg>
+                                    </span>
+                                </label>
+                                <label class="select-custom__option">
+                                    <input type="radio" name="sort" value="4" checked>
+                                    <span>
+                                        По рейтингу <svg><use xlink:href="img/icons/sprite.svg#down"></use></svg>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="tags__catalog">
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                        <div class="item-catalog">
+    <div class="item-catalog__preview" href="/">
+        <a href="" class="media-contain">
+            <picture><source srcset="img/products/product-1.webp" type="image/webp"><img src="img/products/product-1.jpg" alt=""></picture>
+        </a>
+    </div>
+    <div class="item-catalog__body">
+        <a class="item-catalog__title" href="#"><h5>Lenovo IdeaPad 3 15ITL05 81X800KLUS</h5></a>
+        <div class="item-catalog__details">
+            <span>Core i3 1115G4</span>
+            <span>8 Гб ОЗУ</span>
+            <span>256 Гб SSD</span>
+            <span>Iris Xe Graphics</span>
+        </div>
+        <div class="rub">от 34 999</div>
+        <a class="btn main-btn" href="#">Полные характеристики</a>
+    </div>
+</div>
+                    </div>
+                    <div class="catalog-footer">
+                        <a href="#" class="btn main-btn">Показать еще...</a>
+                        <nav class="pagination">
+                            <a class="pagination__arr pagination__arr--prev disabled" href="#"></a>
+                            <a class="pagination__link active" href="#">1</a>
+                            <a class="pagination__link" href="#">2</a>
+                            <a class="pagination__link" href="#">3</a>
+                            <span class="pagination__item">...</span>
+                            <a class="pagination__link" href="#">22</a>
+                            <a class="pagination__arr pagination__arr--next" href="#"></a>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--footer-->
+        <footer class="footer" id="about">
+    <div class="footer__columns container">
+        <div class="footer__column text-footer">
+            <p>NbHunter.ru - онлайн консультант по ноутбукам. На нашем сайте вы можете найти подходящий Вам ноутбук по выбранным Вами тегам.</p>       
+            <p>Сервис рассчитан для людей, которые не сильно разбираются в железе или не разбираются в нем вообще. Мы не продаем ноутбуки, а только указываем подробные характеристики, цену, минусы и плюсы аппарата (на основе отзывов).</p>
+            <p>Все ссылки на ноутбуки введут только к проверенным продавцам: М.Видео, Ситилинк, ДНС, KNS, АлиЭкспресс, Computer Universe (Германия)</p>
+            <p>Под меню сайта Вы можете обратить внимание на лучший ноутбук по соотношению цена и качество на текущий момент.</p>
+            <p>ВНИМАНИЕ! Сайт NbHunter не несет никакой ответственности за  изменения ценника на сайте продавца. Вся информация на сайте NbHunter несет только ознакомительный характер. При переходе на сайт продавца стоит еще раз обратить внимание на актуальность старого ценника на ноутбук.</p>
+        </div>
+        <div class="footer__column nav-footer">
+          <div class="nav-footer__col">
+            <div class="nav-footer__header">NbHunter</div>
+            <ul>
+              <li>
+                <a class="main-link" href="">Сотрудничество</a>
+              </li>
+              <li>
+                <a class="main-link" href="">Сообщить об ошибке</a>
+              </li>
+              <li>
+                <a class="main-link" href="">Принципы проекта</a>
+              </li>
+              <li>
+                <a class="main-link" href="">Контакты</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-footer__col">
+            <div class="nav-footer__header">Ноутбуки</div>
+            <ul>
+              <li><a class="main-link" href="">Подобрать ноутбук</a></li>
+              <li><a class="main-link" href="">Полный каталог</a></li>
+              <li><a class="main-link" href="">Графический дизайн</a></li>
+              <li><a class="main-link" href="">Офисные</a></li>
+              <li><a class="main-link" href="">Игровые</a></li>
+              <li><a class="main-link" href="">3D графика</a></li>
+              <li><a class="main-link" href="">Веб-дизайн</a></li>
+            </ul>
+          </div>
+          <div class="nav-footer__col">
+            <div class="nav-footer__header">Услуги</div>
+            <ul>
+              <li>
+                <a class="main-link" href="">Консультация</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__column attention-info">
+          <p>На сайте указаны не все модели рынка. Мы добавляем только самые интересные на наш взгляд модели. К нам на сайт также не попадают модели, которые имеют очень много плохих отзывов,  модели с очень слабым железом, а также модели от неизвестных (или малоизвестных) производителей.
+          </p>
+        </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__copyright">
+            <a href="/">
+              <picture><source srcset="img/logo-footer.webp" type="image/webp"><img src="img/logo-footer.png" alt="Логотип NbHunter"></picture>
+            </a>
+            <span>© 2023</span>
+        </div>
+        <div class="footer__contacts">
+            <a href="mailto:mail@nbhunter.ru">mail@nbhunter.ru</a>
+            <a href="tel:89999999999">+7 999 999 99 99</a>
+            <span>г. Санкт-Петербург</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+        
+    </div>
+    <script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/swiper.min.js"></script>
+<script src="js/libs/nouislider.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>
