@@ -977,8 +977,7 @@ section {
 }
 
 .header .container {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1017,9 +1016,12 @@ section {
   transform-origin: center left;
 }
 
+.header.scrolled .menu {
+  top: 60px;
+}
+
 .header.scrolled .container {
-  padding-top: 3px;
-  padding-bottom: 3px;
+  height: 60px;
 }
 
 .header.active .icon-menu {
