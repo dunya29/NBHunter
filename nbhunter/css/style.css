@@ -1097,8 +1097,8 @@ section {
 }
 
 .breadcrumbs {
-  padding-top: 37px;
-  margin-bottom: 64px;
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
 
 .breadcrumbs ul {
@@ -1662,10 +1662,6 @@ section {
   font-weight: 500;
   color: #dd5700;
   cursor: pointer;
-}
-
-.product {
-  padding-top: 30px;
 }
 
 .product__main {
