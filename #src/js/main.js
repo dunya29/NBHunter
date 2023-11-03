@@ -132,6 +132,7 @@ document.querySelectorAll(".menu li").forEach(el => {
   })
 })
 window.addEventListener("load", () => {
+  document.body.classList.remove("no-scroll")
   disableScroll()
   let i = 0
   let interval = setInterval(() => {

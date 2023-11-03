@@ -5,7 +5,7 @@
 "title": "Главная"
 })
 
-<body>
+<body class="no-scroll">
     @@include("_svg.html")
     @@include("_preloader.html")
     <div class="wrap">
@@ -36,6 +36,7 @@
         </header>
         <!--main-->
         <main class="main">
+            <!--main-intro-->
             <section class="main-intro">
                 <picture>
                     <source srcset="img/intro.webp" media="(min-width: 800.99px)" type="image/webp">
@@ -51,6 +52,7 @@
                     </div>
                 </div>
             </section>
+            <!--rec-catalog-->
             <section class="rec-catalog" id="recommended">
                 <div class="container">
                     <h2>Лучшие предложения</h2>
@@ -91,7 +93,8 @@
                     </div>
                 </div>
             </section>
-            <section class="tags">
+            <!--tags-->
+            <section class="tags" id="tags">
                 <div class="container">
                     <div class="tags__info">
                         <p>Характеристики ноутбука ни о чем вам не говорят? Воспользуйтесь нашим поиском по тегам:
@@ -312,7 +315,6 @@
         </main>
         <!--footer-->
         @@include('_footer.html')
-        @@include('_modal.html')
     </div>
     @@include('_js.html')
 </body>

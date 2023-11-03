@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#333">
 </head>
 
-<body>
+<body class="no-scroll">
     <object style="display: none" class="sprite" type="image/svg+xml" data="img/icons/sprite.svg" title="Ваш браузер не поддерживает SVG"></object>
     <div class="preloader">
     <div class="preloader__bar">
@@ -57,6 +57,7 @@
         </header>
         <!--main-->
         <main class="main">
+            <!--main-intro-->
             <section class="main-intro">
                 <picture>
                     <source srcset="img/intro.webp" media="(min-width: 800.99px)" type="image/webp">
@@ -72,6 +73,7 @@
                     </div>
                 </div>
             </section>
+            <!--rec-catalog-->
             <section class="rec-catalog" id="recommended">
                 <div class="container">
                     <h2>Лучшие предложения</h2>
@@ -197,7 +199,8 @@
                     </div>
                 </div>
             </section>
-            <section class="tags">
+            <!--tags-->
+            <section class="tags" id="tags">
                 <div class="container">
                     <div class="tags__info">
                         <p>Характеристики ноутбука ни о чем вам не говорят? Воспользуйтесь нашим поиском по тегам:
@@ -690,9 +693,9 @@
       </div>
     </div>
   </footer>
-        
     </div>
-    <script src="js/libs/jquery.min.js"></script>
+    <!--scripts-->
+<script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/swiper.min.js"></script>
 <script src="js/libs/nouislider.js"></script>
 <script src="js/main.js"></script>

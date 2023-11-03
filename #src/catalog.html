@@ -5,7 +5,7 @@
 "title": "Каталог товаров"
 })
 
-<body>
+<body class="no-scroll">
     @@include("_svg.html")
     @@include("_preloader.html")
     <div class="wrap">
@@ -37,6 +37,7 @@
         <!--main-->
         <main class="main">
             @@include('_breadcrumbs.html', {"page":"Каталог"})
+            <!--catalog-->
             <section class="catalog">
                 <div class="container">
                     <div class="catalog__aside">
@@ -831,7 +832,6 @@
         </main>
         <!--footer-->
         @@include('_footer.html')
-        @@include('_modal.html')
     </div>
     @@include('_js.html')
 </body>

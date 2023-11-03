@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#333">
 </head>
 
-<body>
+<body class="no-scroll">
     <object style="display: none" class="sprite" type="image/svg+xml" data="img/icons/sprite.svg" title="Ваш браузер не поддерживает SVG"></object>
     <div class="preloader">
     <div class="preloader__bar">
@@ -57,12 +57,14 @@
 </header>
         <!--main-->
         <main class="main">
+            <!--notfound-->
             <section class="notfound">
                 <div class="container">
                     <h1>404</h1>
                     <p>Кажется, что-то пошло не так! Страница,
                     которую вы ищите, не существует. Возможно она устарела, удалена или ссылка на нее была введена
                     неверно.</p>
+                    <a href="/" class="btn main-btn">На главную</a>
                 </div>
             </section>
         </main>
@@ -136,9 +138,9 @@
       </div>
     </div>
   </footer>
-        
     </div>
-    <script src="js/libs/jquery.min.js"></script>
+    <!--scripts-->
+<script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/swiper.min.js"></script>
 <script src="js/libs/nouislider.js"></script>
 <script src="js/main.js"></script>

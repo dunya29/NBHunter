@@ -5,7 +5,7 @@
 "title": "Lenovo IdeaPad 3 15ITL05 81X800KLUS"
 })
 
-<body>
+<body class="no-scroll">
     @@include("_svg.html")
     @@include("_preloader.html")
     <div class="wrap">
@@ -13,18 +13,19 @@
         @@include('_header.html')
         <!--main-->
         <main class="main">
+            <!--notfound-->
             <section class="notfound">
                 <div class="container">
                     <h1>404</h1>
                     <p>Кажется, что-то пошло не так! Страница,
                     которую вы ищите, не существует. Возможно она устарела, удалена или ссылка на нее была введена
                     неверно.</p>
+                    <a href="/" class="btn main-btn">На главную</a>
                 </div>
             </section>
         </main>
         <!--footer-->
         @@include('_footer.html')
-        @@include('_modal.html')
     </div>
     @@include('_js.html')
 </body>

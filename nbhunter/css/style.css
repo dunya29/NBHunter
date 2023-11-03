@@ -229,6 +229,10 @@ textarea:focus {
   outline: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -2309,6 +2313,10 @@ section {
   font-size: 72px;
   font-weight: 700;
   margin-bottom: 50px;
+}
+
+.notfound .container .btn {
+  margin-top: 25px;
 }
 
 .no-webp .footer {
