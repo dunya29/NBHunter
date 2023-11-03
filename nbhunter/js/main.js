@@ -110,6 +110,43 @@ function searchReset(form) {
   });
   resetBtnHidden(form)
 }
+// unshow preloader
+window.addEventListener("load", () => {
+  document.body.classList.remove("no-scroll")
+  disableScroll()
+  let i = 0
+  let interval = setInterval(() => {
+    document.querySelector(".preloader__percent").textContent = i
+    i++
+    if (i === 101) {
+      clearInterval(interval)
+      setTimeout(() => {
+        enableScroll()
+      }, 1600);
+    }
+  }, 1);
+})
+//fixed header
+window.addEventListener("scroll", () => {
+  let windowTop = window.pageYOffset || document.documentElement.scrollTop
+  if (windowTop > 1) {
+    header.classList.add("scrolled")
+  } else {
+    header.classList.remove("scrolled")
+  }
+})
+// js-anchor
+document.querySelectorAll(".js-anchor").forEach(item => {
+  item.addEventListener("click", e => {
+    e.preventDefault()
+    let href = item.getAttribute("href")
+    let windowTop = window.pageYOffset || document.documentElement.scrollTop
+    if (document.querySelector(href)) {
+      let dest = windowTop + document.querySelector(href).getBoundingClientRect().top
+      window.scrollTo({top: dest - 60, behaviour: "smooth"})
+    }
+  })
+})
 //drop menu
 iconMenu.addEventListener("click", () => {
   if (header.classList.contains("active")) {
@@ -130,30 +167,6 @@ document.querySelectorAll(".menu li").forEach(el => {
       enableScroll()
     } 
   })
-})
-window.addEventListener("load", () => {
-  document.body.classList.remove("no-scroll")
-  disableScroll()
-  let i = 0
-  let interval = setInterval(() => {
-    document.querySelector(".preloader__percent").textContent = i
-    i++
-    if (i === 101) {
-      clearInterval(interval)
-      setTimeout(() => {
-        enableScroll()
-      }, 2000);
-    }
-  }, 1);
-})
-//fixed header
-window.addEventListener("scroll", () => {
-  let windowTop = window.pageYOffset || document.documentElement.scrollTop
-  if (windowTop > 1) {
-    header.classList.add("scrolled")
-  } else {
-    header.classList.remove("scrolled")
-  }
 })
 // search-form reset btn show/unshow
 const search= document.querySelectorAll(".search")
